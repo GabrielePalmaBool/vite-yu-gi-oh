@@ -1,22 +1,54 @@
 <script >
-import HelloWorld from './components/HelloWorld.vue'
+
+//importo libreria axios
+import axios from 'axios'
+//importo componenti figli
+import Myheader from './components/Myheader.vue'
+import Mymain from './components/Mymain.vue'
+import Myfooter from './components/Myfooter.vue'
+//importo store
+import { store } from './store'
+
+export default {
+
+  components: {
+    Myheader,
+    Mymain,
+    Myfooter
+  },
+  data() {
+    return {
+      store,
+    }
+  },
+  methods: {
+    getCards() {
+      axios
+        .get(store.apiURL)
+        .then((res => {
+
+          store.CardList = res.data.data;
+
+          console.log(store.CardList);
+
+        }))
+        .catch((err) => {
+          console.log("Errori", err);
+        });
+    }
+  },
+  created() {
+    this.getCards();
+  }
+}
 </script>
 
-<template></template>
+<template>
+  <Myheader />
+  <Mymain />
+  <Myfooter />
+</template>
 
 <style lang="scss" >
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+@use './styles/general.scss';
 </style>
