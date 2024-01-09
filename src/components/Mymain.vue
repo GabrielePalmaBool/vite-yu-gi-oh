@@ -17,6 +17,11 @@ export default {
             store,
 
         }
+    },
+    computed: {
+        numcard() {
+            return store.CardList.length;
+        }
     }
 }
 
@@ -39,6 +44,12 @@ export default {
                 </option>
 
             </select>
+
+            <!-- Computed propeties -->
+            <div class="count">
+                <section v-if="numcard > 0"> trovate {{ numcard }} carte</section>
+                <section v-else> ok</section>
+            </div>
 
             <div class="container sub">
                 <div class="row row-cols-5 ">
@@ -67,6 +78,13 @@ main {
 
     select {
         margin-bottom: 20px;
+    }
+
+    .count {
+        text-align: center;
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 20px;
     }
 
     .sub {
