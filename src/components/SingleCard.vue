@@ -29,11 +29,12 @@ export default {
 
 .backgroundC {
 
-    padding: 20px;
+    padding: 10px;
 
     .card {
         background-color: $bg-color;
         text-align: center;
+
 
         h4 {
             text-transform: capitalize;

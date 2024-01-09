@@ -12,11 +12,17 @@ export default {
 <template>
     <footer class="container">
 
-        <h1 class="text-center my-5">Titolo Footer</h1>
+        <img src="/rick-astley-dance.gif" class="gif" alt="Footer non presente">
     </footer>
 </template>
 
 <style lang="scss" scoped>
 //Scss relativo alla sola sezione di header
 @use '../styles/partials/variables' as *;
+
+
+.gif {
+    width: 15%;
+    margin-left: 40%;
+}
 </style>
