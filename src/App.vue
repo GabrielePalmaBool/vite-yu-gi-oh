@@ -31,12 +31,19 @@ export default {
 
       let myURL = store.apiURL
 
+
       //Se è stato selezionato qualcosa dal selettore
-      if (store.searchText !== "") {
-        myURL += `?${store.Arc}=${store.searchText}`
+      if (store.searchText == "-Eyes Dragon") {
+        console.log("ok");
+        myURL += `&${store.Arc}=-Eyes%20Dragon`
       }
 
-      console.log(store.searchText);
+      //Se è stato selezionato qualcosa dal selettore
+      else if (store.searchText !== "") {
+        myURL += `&${store.Arc}=${store.searchText}`
+      }
+
+      console.log(myURL);
       //prima chiamata axios
       axios.get(myURL).then((res => { store.CardList = res.data.data; console.log(store.CardList); })).catch((err) => { console.log("Errori", err); });
 
@@ -54,7 +61,7 @@ export default {
 
 <template>
   <Myheader />
-  <Mymain @filt="getCards" />
+  <Mymain @filter="getCards" />
   <Myfooter />
 </template>
 

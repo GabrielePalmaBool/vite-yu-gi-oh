@@ -1,8 +1,6 @@
 <script >
 import SingleCard from './SingleCard.vue'
 
-import SelectArc from './SelectArc.vue'
-
 //importo store
 import { store } from '../store'
 
@@ -11,8 +9,7 @@ export default {
     name: "Mymain",
 
     components: {
-        SingleCard,
-        SelectArc
+        SingleCard
     },
 
     data() {
@@ -33,12 +30,12 @@ export default {
 
         <main class="container ">
 
-            <select v-model.trim="store.searchText" class="form-select w-25 ">
+            <select v-model.trim="store.searchText" class="form-select w-25" @change="$emit('filter')">
 
                 <option disabled selected>Selezionare una categoria</option>
 
-                <option v-for="(arch, i) in store.ArchList" value="i" @click.filter="$emit('filt')">
-                    <SelectArc :info="arch" />
+                <option v-for="(arch, i) in store.ArchList" :key="i" :value="arch.archetype_name">
+                    {{ arch.archetype_name }}
                 </option>
 
             </select>
