@@ -1,7 +1,12 @@
 <script>
 
 export default {
-    name: "SingleCard"
+    name: "SingleCard",
+
+    props: {
+        info: Object
+    }
+
 }
 
 
@@ -10,11 +15,11 @@ export default {
 </script>
 
 <template>
-    <div class="background">
+    <div class="backgroundC">
         <div class="card">
-            <img src="" alt="">
-            <h4>nome carta</h4>
-            <h5>tipo carta</h5>
+            <img :src="info.card_images[0].image_url" alt="">
+            <h4>{{ info.name }}</h4>
+            <h5>{{ info.archetype }}</h5>
         </div>
     </div>
 </template>
@@ -22,11 +27,25 @@ export default {
 <style lang="scss" scoped>
 @use '../styles/partials/variables' as *;
 
-.background {
-    background-color: $bg-color;
-}
+.backgroundC {
 
-h4 {
-    text-transform: capitalize;
+    padding: 20px;
+
+    .card {
+        background-color: $bg-color;
+        text-align: center;
+
+        h4 {
+            text-transform: capitalize;
+            font-size: 15px;
+            color: $bg-color1;
+        }
+
+        h5 {
+            font-size: 15px;
+        }
+    }
+
+
 }
 </style>

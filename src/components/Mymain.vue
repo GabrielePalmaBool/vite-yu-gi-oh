@@ -37,9 +37,9 @@ export default {
             </select>
 
             <div class="container sub">
-                <div class="row">
-                    <div v-for="card in store.CardList" class="col-5 p-2 card">
-                        <SingleCard />
+                <div class="row row-cols-5 ">
+                    <div v-for="card in store.CardList" :key="card" class="col p-2">
+                        <SingleCard :info="card" />
                     </div>
 
                 </div>
@@ -59,17 +59,15 @@ export default {
 
 main {
     padding-top: 50px;
-}
+    padding-bottom: 50px;
 
-
-
-.sub {
-    background-color: $bg-color1;
-
-    .card {
-
-        background-color: red;
+    select {
+        margin-bottom: 20px;
     }
 
+    .sub {
+        background-color: $bg-color1;
+
+    }
 }
 </style>

@@ -2,10 +2,12 @@
 
 //importo libreria axios
 import axios from 'axios'
+
 //importo componenti figli
 import Myheader from './components/Myheader.vue'
 import Mymain from './components/Mymain.vue'
 import Myfooter from './components/Myfooter.vue'
+
 //importo store
 import { store } from './store'
 
@@ -16,11 +18,14 @@ export default {
     Mymain,
     Myfooter
   },
+
   data() {
     return {
       store,
     }
+
   },
+
   methods: {
     getCards() {
       axios
@@ -37,9 +42,11 @@ export default {
         });
     }
   },
+
   created() {
     this.getCards();
   }
+
 }
 </script>
 
