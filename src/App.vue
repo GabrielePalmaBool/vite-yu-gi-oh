@@ -33,13 +33,7 @@ export default {
 
 
       //Se è stato selezionato qualcosa dal selettore
-      if (store.searchText == "-Eyes Dragon") {
-        console.log("ok");
-        myURL += `&${store.Arc}=-Eyes%20Dragon`
-      }
-
-      //Se è stato selezionato qualcosa dal selettore
-      else if (store.searchText !== "") {
+      if (store.searchText !== "") {
         myURL += `&${store.Arc}=${store.searchText}`
       }
 
