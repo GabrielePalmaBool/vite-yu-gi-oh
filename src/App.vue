@@ -28,18 +28,20 @@ export default {
 
   methods: {
     getCards() {
-      axios
-        .get(store.apiURL)
-        .then((res => {
 
-          store.CardList = res.data.data;
+      let myURL = store.apiURL
 
-          console.log(store.CardList);
+      //Se è stato selezionato qualcosa dal selettore
+      if (store.searchText !== "") {
+        myURL += `?${store.Arc}=${store.searchText}`
+      }
 
-        }))
-        .catch((err) => {
-          console.log("Errori", err);
-        });
+      console.log(store.searchText);
+      //prima chiamata axios
+      axios.get(myURL).then((res => { store.CardList = res.data.data; console.log(store.CardList); })).catch((err) => { console.log("Errori", err); });
+
+      //Seconda chiamta axios
+      axios.get(store.apiURL2).then((res => { store.ArchList = res.data; console.log(store.ArchList); })).catch((err) => { console.log("Errori", err); });
     }
   },
 
@@ -52,7 +54,7 @@ export default {
 
 <template>
   <Myheader />
-  <Mymain />
+  <Mymain @filt="getCards" />
   <Myfooter />
 </template>
 
