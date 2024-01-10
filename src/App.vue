@@ -34,7 +34,7 @@ export default {
 
       //Se è stato selezionato qualcosa dal selettore
       if (store.searchText !== "") {
-        myURL += `&${store.Arc}=${store.searchText}`
+        myURL = `https://db.ygoprodeck.com/api/v7/cardinfo.php?${store.Arc}=${store.searchText}`
       }
 
       console.log(myURL);
