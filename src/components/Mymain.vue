@@ -35,9 +35,9 @@ export default {
 
         <main class="container ">
 
-            <select v-model.trim="store.searchText" class="form-select w-25" @change="$emit('filter')">
+            <select v-model="store.searchText" class="form-select w-25" id="selected-searchText" @change="$emit('filter')">
 
-                <option disabled selected>Selezionare una categoria</option>
+                <option selected value="">Selezionare una categoria</option>
 
                 <option v-for="(arch, i) in store.ArchList" :key="i" :value="arch.archetype_name">
                     {{ arch.archetype_name }}
